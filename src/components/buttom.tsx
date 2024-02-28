@@ -1,4 +1,4 @@
-export default function NumButton(props: any) {
+export function NumButton(props: any) {
     const {
         text,
         ...other
@@ -18,22 +18,6 @@ export function OpeButton(props: any) {
     return (
         <button {...other}>
             {text}
-        </button>
-    );
-}
-
-export function EqualButton(props:any) {
-    return (
-        <button {...props}>
-            =
-        </button>
-    );
-}
-
-export function DelButton(props:any){
-    return(
-        <button {...props}>
-            AC
         </button>
     );
 }

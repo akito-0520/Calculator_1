@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import NumButton, { OpeButton, EqualButton, DelButton } from './components/buttom.tsx';
+import { NumButton, OpeButton } from './components/buttom.tsx';
 import { GcdFraction } from './components/cal_func.tsx';
 
 function App() {
@@ -33,8 +33,8 @@ function App() {
     else if (ope === "^")
       setAns(Math.pow(left, right));
     else if (ope === "/")
-      setAns(GcdFraction(left,right));
-    
+      setAns(GcdFraction(left, right));
+
   }
 
   function AllClearKeyPressed() {
@@ -42,6 +42,17 @@ function App() {
     setRight(0);
     setOpe(undefined);
     setAns(undefined);
+  }
+
+  function DelKeyPressed() {
+    setAns(undefined);
+    
+    if (ope === undefined)
+      setLeft(Math.trunc(left / 10));
+    else if (right === 0)
+      setOpe(undefined);
+    else
+      setRight(Math.trunc(right / 10));
   }
 
   return (
@@ -78,8 +89,10 @@ function App() {
         <br></br>
         <OpeButton text="^" onClick={() => { OpeKeyPressed("^") }} />
         <OpeButton text="/" onClick={() => { OpeKeyPressed("/") }} />
-        <EqualButton onClick={() => { EqualKeyPressed() }} />
-        <DelButton onClick={() => { AllClearKeyPressed() }} />
+        <OpeButton text="=" onClick={() => { EqualKeyPressed() }} />
+        <br></br>
+        <OpeButton text="AC" onClick={() => { AllClearKeyPressed() }} />
+        <OpeButton text="DEL" onClick={() => { DelKeyPressed() }} />
       </div>
     </div>
   )
