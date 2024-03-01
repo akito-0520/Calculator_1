@@ -1,0 +1,18 @@
+.CalLayout {
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 400vh;
+    width: 200vw;
+    margin: 5%;
+}
+
+.HeaderLayout {
+    color: blue;
+    font-size: 2vw;
+}
+
+.NumButtonLayout {
+    color: red;
+}
